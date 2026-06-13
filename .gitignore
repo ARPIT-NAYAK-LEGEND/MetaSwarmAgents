@@ -1,0 +1,25 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# Local data store
+data/
+
+# Node
+dashboard/node_modules/
+dashboard/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

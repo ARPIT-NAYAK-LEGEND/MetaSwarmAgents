@@ -1,0 +1,30 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Order API", "version": "1.0" },
+  "paths": {
+    "/orders": {
+      "get": {
+        "operationId": "listOrders",
+        "summary": "Return paginated orders, support ?status= and ?userId= filters"
+      },
+      "post": {
+        "operationId": "createOrder",
+        "summary": "Create order, validate that all itemIds exist, set status to pending"
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "operationId": "getOrder",
+        "summary": "Return order with full item details joined, 404 if not found"
+      },
+      "patch": {
+        "operationId": "updateOrderStatus",
+        "summary": "Advance status: pending→processing→shipped→delivered. Reject invalid transitions."
+      },
+      "delete": {
+        "operationId": "cancelOrder",
+        "summary": "Cancel only if status is pending. Return 409 if already processing or shipped."
+      }
+    }
+  }
+}
